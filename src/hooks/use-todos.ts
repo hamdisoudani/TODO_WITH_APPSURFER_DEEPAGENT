@@ -38,7 +38,7 @@ export function useTodos() {
       id: crypto.randomUUID(),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-      order: todos.length,
+      order: Math.max(...todos.map(t => t.order), -1) + 1,
     };
 
     const newTodos = [...todos, newTodo];
